@@ -27,7 +27,7 @@
   "files": ["/home/user/.hermes/proactive/open_threads.md"]
 }
 ```
-Rules: never add anything the secondary writes (journal/proposals). Add git repo roots as they appear; add connector-backed poller outputs (not the connectors themselves) when apps are linked.
+Rules: the detector never creates this file — it defines the human-approved watched set, populate it only after that answer. Never add anything the secondary writes (journal/proposals). Add git repo roots as they appear; add connector-backed poller outputs (not the connectors themselves) when apps are linked. Expect memories/skills churn from the primary agent — that's self-noise (see ARCHITECTURE threat model), handled by the secondary's quiet-reply rule.
 
 ## dot_watch.py
-See [`dot_watch.py`](dot_watch.py) — tested reference implementation (stdlib only, portable). Exit output contract: first run `baseline established`; no change → empty stdout; change → one `CHANGED/NEW/REMOVED <path> -> <digest>` line per path.
+See [`dot_watch.py`](dot_watch.py) — tested reference implementation (stdlib only). Workspace location via `PROACTIVE_HOME=<dir>` (default `~/.hermes/proactive`). Output contract: no config → single "NO CONFIG" line (watches nothing); first run `baseline established`; no change → empty stdout; change → one `CHANGED/NEW/REMOVED <path> -> <digest>` line per surface plus `modified:/added:/removed:` lines naming changed files inside watched dirs (cap 10 each). Dir digests are content-hashes (no same-second mtime blind spot).

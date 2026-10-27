@@ -14,6 +14,8 @@ Every operation an agent could take falls into exactly one bucket:
 
 Borderline cases resolve **up** to the stricter bucket. "Probably harmless" is not a bucket.
 
+**Self-modification:** writing the methodology's rules into your own memory/skills *as part of a human-approved adoption plan* is bucket 2 (the plan itself was the approval). Unapproved self-config changes resolve up to bucket 3. The background run's self-config ban (§2) is absolute regardless of plan.
+
 ## 2. The proactive loop (the secondary agent's job)
 
 Every background run executes exactly this loop and nothing more:
@@ -64,7 +66,10 @@ A proposal is **inert data**. The background agent that wrote it never acts on i
 
 Dots burned 300K+ tokens/day unprompted (Geordie, Oct 2026). Rules to prevent becoming that dot:
 
-- Nothing sub-daily for reasoning passes; the *detector* may tick every few minutes because it's a script, not the model.
+- **Scheduled unprompted passes** (blind cadence, no gate): never more than 1x/day.
+- **Event-gated passes** (detector woke them): at most the human-approved tick ceiling (30m here). Gated wakes are bounded by real change, not the clock — a 30m *detector* tick is not a 30m reasoning cadence.
+- **Churn renegotiation:** if gated wakes exceed ~10/day, the watched surface is too noisy — re-derive surfaces and ceiling with the human.
+- Detectors tick on their own schedule at zero model cost.
 - Gate every reasoning wake on a **deterministic change detector**: identical output = no agent run = zero tokens.
 - Scope each reasoning pass to the diff that woke it. A wake is not a license to explore.
 - Budget check: if background passes grow (more watched surfaces), re-derive the cadence rather than letting frequency drift up.

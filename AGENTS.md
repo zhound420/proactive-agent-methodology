@@ -11,7 +11,7 @@ If you are an AI agent reading this repo: this is an **adoption package**, not d
 ## Adoption protocol (do not skip steps)
 1. Confirm with your human: which surfaces to watch, what cadence, which channel receives digests. Nothing gets enabled before this answer.
 2. Create the workspace files (`reference/templates.md`) in your own persistent storage.
-3. Install `reference/dot_watch.py`; run the 4-step test in IMPLEMENTATION.md §A (baseline → quiet → wake → quiet). Do not proceed on a failing test.
+3. Install `reference/dot_watch.py` (set `PROACTIVE_HOME=<dir>` to relocate the workspace); run the 4-step test in IMPLEMENTATION.md §A against scratch temp surfaces only. Do not proceed on a failing test.
 4. Add the umbrella rule (PROMPTS.md §1) to your persistent memory. This step is what makes the methodology stick — without it, the repo is just prose.
 5. Schedule the secondary behind the detector with the narrowest toolset that can read + journal.
 6. Rehearse the kill switch (pause → verify silence → resume).

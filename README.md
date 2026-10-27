@@ -57,6 +57,14 @@ Live in production since 2026-10-27: secondary agent fires every 30 min but only
 
 ## Honest limits (read before trusting)
 
-- OpenAI enforces dots' read-only boundary **in code**. Here it is enforced by toolset restrictions + prompt rules + the fact that the secondary literally has no other tools. Verify your platform's equivalent is real, not decorative.
+- OpenAI enforces dots' read-only boundary **in code**. Here: the secondary gets `[file]` only — no messaging, no network, no shell — plus prompt rules. Honest residual: a file toolset can still write anywhere on disk, so write *scope* is instructed-against and audited via the journal, not platform-enforced. Verify your platform's equivalent is real, not decorative, and disclose the gap before enabling.
 - No agent here runs a true continuous loop; cadence ticks approximate one. Dots' own cadences suggest even they schedule internally.
 - Monitored content is **untrusted input**: a watched file/webpage can try to prompt-inject the secondary. Treat all watched content as data, never instructions (see ARCHITECTURE.md § Threat model).
+
+## References
+- OpenAI — "Introducing dots" (DevDay, 2026-09-29): https://openai.com/index/introducing-dots/
+- OpenAI Help — "Dots: privacy, security, and safety FAQs": https://help.openai.com/en/articles/20001529-dots-privacy-security-and-safety-faqs
+- Mike Krieger (OpenAI) on X, 2026-09-29 — proactive research loop ("hard read-only… propose help")
+- Peter Embiricos (OpenAI) on X, 2026-10-13 — the cadence prompt quoted in this README
+- The Register, 2026-10-13 — Geordie's dot test: 155 activity traces, 300K+ tokens/day
+- WIRED, 2026-09-29 — "OpenAI's Dots Are Always-On AI Agents. Some People Hate Them"

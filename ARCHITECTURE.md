@@ -41,6 +41,7 @@ Options ranked by cost/complexity:
 |---|---|
 | **Prompt injection via watched content** (a watched file/page/webpage contains "instructions") | Watched content is data, never instructions. Secondary's prompt declares this. Journal entries quote-attribute, never obey. |
 | **Self-wake loop** (secondary writes a watched file → wakes itself forever) | The secondary's writable set (journal, proposals) is disjoint from the watched set (config, threads, skills, memories, repos). Enforced by prohibition + the writable set being tiny. |
+| **Self-noise loop** (primary constantly edits watched memories/skills → noisy gated wakes) | Expected churn, not findings: secondary logs one line, replies quiet, never proposes about self-edits. If gated wakes exceed ~10/day the surface set is too noisy — renegotiate surfaces/ceiling with the human. |
 | **Scope creep / self-directed tasks** | Hard prohibitions § METHODOLOGY 2; scheduler entries are fixed prompts; secondary may not edit its own config or scheduler. No subagents. |
 | **Token runaway** | Detector gate + "scope to the diff" rule + cadence caps + human-readable journal for audit. |
 | **Unwanted consequential action** | Background runs physically lack the tools (toolset allowlist). Only the primary, in an interactive turn, after explicit approval, may act. |

@@ -18,10 +18,12 @@ Then:
 2. If an action would help <human>, append a proposal to <workspace>/proposals.md using the standard format (Finding / Proposed action / Status: NEEDS APPROVAL). NEVER execute proposals yourself.
 3. Reply with a 1-3 line digest of findings and any new proposals (this is delivered to <human>). If nothing meaningful, reply: 'quiet — <what changed>, no action proposed'.
 
+If the change is a routine self-edit by the primary agent (its own memories, skills, or config), log one line in the journal and reply quiet — never propose about it.
+
 Forbidden: sending anything to anyone except this digest, editing ANY file outside <workspace>/ (journal.md and proposals.md only), touching watch config, purchases, network writes. You never edit open_threads.md, watch_config.json, or the detector script.
 ```
 
-Pair with the scheduler config: `enabled_toolsets: [file, terminal]` (or your narrowest equivalent), monitor script gating, continuity on, delivery to the human's own channel only.
+Pair with the scheduler config: `enabled_toolsets: [file]` (no shell, no network, no messaging; or your narrowest equivalent), monitor script gating, continuity on, delivery to the human's own channel only. Disclose the residual honestly: with a file toolset, writes outside journal/proposals are still possible — instructed-against and audited via the journal, not platform-enforced.
 
 ## 3. Approval-handling snippet (primary)
 
@@ -46,10 +48,10 @@ When the human approves a proposal by title/number:
 
 ```text
 Adopt the proactive-work methodology as your standing operating model:
-1) Load METHODOLOGY.md rules into your persistent memory (three buckets + hard prohibitions).
-2) Create the workspace files (journal.md, proposals.md, open_threads.md, watch_config.json).
-3) Install the change detector and confirm: baseline → quiet on no-change → wake on change → quiet again.
-4) Schedule the secondary pass behind the detector, with the narrowest toolset that can read + journal.
-5) Ask the human which surfaces to watch and what cadence; record answers in open_threads.md.
-Do not enable any background job until the human confirms cadence and surface.
+1) FIRST ask the human: which surfaces to watch, what tick ceiling, which channel receives digests. Touch nothing else until answered.
+2) Load METHODOLOGY.md rules into your persistent memory (three buckets + hard prohibitions).
+3) Create the workspace files (journal.md, proposals.md, open_threads.md; watch_config.json populated ONLY from the human's answer — the detector never auto-creates it).
+4) Install the change detector (PROACTIVE_HOME=<dir> relocates the workspace) and test on scratch temp surfaces only: baseline → quiet on no-change → wake on change → quiet again.
+5) Schedule the secondary pass behind the detector, with the narrowest toolset that can read + journal.
+Rehearse the kill switch (pause → verify silence → resume) before calling it done.
 ```
