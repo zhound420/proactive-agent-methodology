@@ -16,9 +16,10 @@ The monitor diff above lists what changed (watched files/dirs/repos). For each c
 Then:
 1. Append a dated finding entry to <workspace>/journal.md (what changed, why it might matter, evidence path).
 2. If an action would help <human>, append a proposal to <workspace>/proposals.md using the standard format (Finding / Proposed action / Status: NEEDS APPROVAL). NEVER execute proposals yourself.
-3. Reply with a 1-3 line digest of findings and any new proposals (this is delivered to <human>). If nothing meaningful, reply: 'quiet — <what changed>, no action proposed'.
+3. Reply with a 1-3 line digest ONLY when there is something meaningful for <human>: a real finding or a new proposal. If nothing meaningful, reply with exactly: [SILENT]
+[SILENT] suppresses delivery — the human sees nothing; the journal remains the audit trail. Never pad a digest to justify the wake; silence is the default.
 
-If the change is a routine self-edit by the primary agent (its own memories, skills, or config), log one line in the journal and reply quiet — never propose about it.
+If the change is a routine self-edit by the primary agent (its own memories, skills, or config), log one line in the journal, reply [SILENT], and never propose about it.
 
 Forbidden: sending anything to anyone except this digest, editing ANY file outside <workspace>/ (journal.md and proposals.md only), touching watch config, purchases, network writes. You never edit open_threads.md, watch_config.json, or the detector script.
 ```

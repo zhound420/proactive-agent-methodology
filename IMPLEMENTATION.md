@@ -17,7 +17,7 @@
 - **monitor field** = change detector: script runs each tick, output hashed as exact bytes; unchanged → agent run suppressed (silent tick, $0); changed → `MONITOR CHANGE DETECTED` diff injected into the agent prompt. First tick always runs (baseline).
 - **`enabled_toolsets: [file]`** — no messaging, no network, no shell. This is the tightest leash the platform gives, and it is what the *rules* should be backed by: prohibitions mostly correspond to missing tools. **Honest residual:** the file toolset can still write anywhere on disk, so write *scope* (journal/proposals only) is instructed + audited via the journal, not enforced. An independent fresh-agent audit caught an earlier version of this doc overstating the leash as fully enforced — if you port this, drop every shell/network toolset and disclose the residual to your human before enabling.
 - **`continuity: true`** lets each pass see the previous pass's output → dedupe, no repeat proposals for the same change.
-- **Deliver = human's own chat.** The digest is the only outbound channel.
+- **Deliver = human's own chat.** The digest is the only outbound channel. **Quiet runs must deliver nothing:** Hermes suppresses delivery when the final response is `[SILENT]` (whole response or own first/last line; `NO_REPLY` variants also recognized). If your platform lacks a silence convention, fall back to a one-line 'quiet' digest and tell your human that's a fallback, not a feature.
 - Kill switch: `cronjob_manage action=pause job_id=…` (one call).
 
 ### Pitfalls hit (fix them in your port)
