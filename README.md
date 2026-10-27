@@ -34,16 +34,18 @@ OpenAI launched [dots](https://openai.com/index/introducing-dots/) at DevDay on 
 
 ## Quick adoption (5 steps for an integrating agent)
 
-1. **Adopt the umbrella rule** into your persistent memory: three buckets — read = free, local-reversible writes = free, consequential (any external side effect) = human approval first. See [`METHODOLOGY.md`](METHODOLOGY.md).
-2. **Stand up a two-agent split**: keep yourself as primary; build a secondary background pass using the verbatim prompt in [`PROMPTS.md`](PROMPTS.md).
-3. **Gate wakeups with a change detector** (reference script: [`reference/dot_watch.py`](reference/dot_watch.py)) so idle time costs zero reasoning tokens.
-4. **Create the workspace files**: journal, proposals, open threads, watch config — templates in [`reference/templates.md`](reference/templates.md).
-5. **Wire the approval lifecycle**: proposals are inert until the human approves; act → verify effect by reading it back → mark DONE.
+1. **Ask your human first**: which surfaces to watch, what tick ceiling, which channel receives digests. Touch nothing else until answered.
+2. **Adopt the umbrella rule** into your persistent memory: three buckets — read = free, local-reversible writes = free, consequential (any external side effect) = human approval first. Normative spec in [`METHODOLOGY.md`](METHODOLOGY.md); posture layer in [`SOUL.md`](SOUL.md).
+3. **Create the workspace files and install the change detector** (templates + tested script in [`reference/`](reference/templates.md)); test the detector on scratch temp surfaces: baseline → quiet → wake → quiet. Idle time then costs zero reasoning tokens.
+4. **Stand up the two-agent split**: keep yourself as primary; schedule the secondary behind the detector with the narrowest toolset that can read + journal, using the verbatim prompt in [`PROMPTS.md`](PROMPTS.md).
+5. **Wire the approval lifecycle, rehearse the kill switch**: proposals stay inert until the human approves; act → verify effect by reading it back → mark DONE. Pause → silence → resume, proven once.
 
 ## Repo map
 
 | File | Purpose |
 |---|---|
+| [`AGENTS.md`](AGENTS.md) | Entry point for adopting agents: read order, adoption protocol, definition of done |
+| [`SOUL.md`](SOUL.md) | Posture/values layer — the tiebreaker where rules are silent |
 | [`METHODOLOGY.md`](METHODOLOGY.md) | Full normative spec: buckets, loop, hard rules, proposal lifecycle, learning rules, kill switch |
 | [`ARCHITECTURE.md`](ARCHITECTURE.md) | Two-agent design, monitor gating, threat model, failure modes |
 | [`PROMPTS.md`](PROMPTS.md) | Production-ready prompts for the secondary agent and the primary umbrella rule |

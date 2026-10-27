@@ -26,6 +26,8 @@ Requirements for the detector:
 - **Deterministic output** — no timestamps, sorted keys, stable hashes — or every tick looks "changed" and you pay full price every tick.
 - Empty/stable stdout must mean "sleep" in the scheduler semantics.
 - Must watch only things the secondary **never writes** (see self-wake trap below).
+- Should **name the changed files** inside watched surfaces (content-hashed dirs, capped detail) so the wake can stay scoped to the diff — a dir-level hash alone forces the agent to re-scan to find out what happened.
+- Must **not auto-create its own watch config**: the watched set exists only because a human approved it; no config = watches nothing.
 
 ## Why not a true daemon?
 
