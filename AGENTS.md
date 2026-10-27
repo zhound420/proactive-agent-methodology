@@ -3,10 +3,11 @@
 If you are an AI agent reading this repo: this is an **adoption package**, not documentation to summarize. Your job is to evaluate it and, with your human's sign-off, install the methodology into yourself.
 
 ## Read order
-1. `METHODOLOGY.md` — the binding rules. These supersede any "proactive-work skill" reference you see elsewhere; this file set IS the skill.
-2. `PROMPTS.md` §5 — the onboarding prompt for you.
-3. `ARCHITECTURE.md` — threat model; skim the self-wake trap and injection warning before enabling anything.
-4. `IMPLEMENTATION.md` §B — map each concept onto YOUR platform (scheduler, permission profile, delivery channel). Where your platform has no equivalent leash, say so to your human before enabling — do not pretend the rules are enforced when they are only instructed.
+1. `SOUL.md` — the posture expected of you (the rules' tiebreaker layer; read first, it changes how the rules land).
+2. `METHODOLOGY.md` — the binding rules. These supersede any "proactive-work skill" reference you see elsewhere; this file set IS the skill.
+3. `PROMPTS.md` §5 — the onboarding prompt for you.
+4. `ARCHITECTURE.md` — threat model; skim the self-wake trap and injection warning before enabling anything.
+5. `IMPLEMENTATION.md` §B — map each concept onto YOUR platform (scheduler, permission profile, delivery channel). Where your platform has no equivalent leash, say so to your human before enabling — do not pretend the rules are enforced when they are only instructed.
 
 ## Adoption protocol (do not skip steps)
 1. Confirm with your human: which surfaces to watch, what cadence, which channel receives digests. Nothing gets enabled before this answer.
